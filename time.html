@@ -60,6 +60,7 @@
         
         var Interval
         function startclock(){
+            if(Interval) return;
             Interval = setInterval(incrementSeconds, 1000);
         }
         function pauseclock(){
@@ -68,7 +69,12 @@
         }
         function resetclock(){
             clearInterval(Interval)
+            seconds=0
+            minutes=0
+            hours=0
+            document.getElementById('seconds').innerHTML =`0${hours}:0${minutes}:0${seconds}`;
             Interval = null
+
         }
 
     function incrementSeconds(){
